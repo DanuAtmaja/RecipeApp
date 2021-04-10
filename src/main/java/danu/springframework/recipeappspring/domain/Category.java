@@ -1,8 +1,12 @@
 package danu.springframework.recipeappspring.domain;
 
+import lombok.*;
+
 import javax.persistence.*;
 import java.util.Set;
 
+@Data
+@EqualsAndHashCode(exclude = {"recipe"})
 @Entity
 public class Category {
 
@@ -22,19 +26,4 @@ public class Category {
         Id = id;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Set<Recipe> getRecipe() {
-        return recipe;
-    }
-
-    public void setRecipe(Set<Recipe> recipe) {
-        this.recipe = recipe;
-    }
 }
