@@ -8,11 +8,22 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <title>Recipe Home test 123 pasti ngulang lagi</title>
+    <title>Recipe Home</title>
 </head>
 <body>
 <div class="container">
     <h1>My Recipes</h1>
+
+    <table class="table table-striped table-hover">
+        <tr>
+            <th>ID</th>
+            <th>Description</th>
+        </tr>
+        <tr th:each="recipe : ${recipes}">
+            <td th:text="${recipe.id}">123</td>
+            <td th:text="${recipe.description}">Tasty Godness</td>
+        </tr>
+    </table>
 </div>
 
 <!-- Optional JavaScript -->
