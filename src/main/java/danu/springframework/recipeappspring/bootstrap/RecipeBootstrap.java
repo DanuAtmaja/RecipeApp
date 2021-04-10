@@ -126,15 +126,14 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
         Notes guacNotes = new Notes();
         guacNotes.setRecipeNotes("Guacamole is best eaten right after it's made. Like apples, avocados start to oxidize and turn brown once they've been cut. That said, the acid in the lime juice you add to guacamole can help slow down that process, and if you store the guacamole properly, you can easily make it a few hours ahead if you are preparing for a party.");
 
-        guacNotes.setRecipe(guacRecipe);
         guacRecipe.setNotes(guacNotes);
 
-        guacRecipe.getIngredients().add(new Ingredient("ripe avocados",new BigDecimal(2),eachUom,guacRecipe));
-        guacRecipe.getIngredients().add(new Ingredient("teaspoon of salt, more to taste",new BigDecimal(5),teaSpoonUom,guacRecipe));
-        guacRecipe.getIngredients().add(new Ingredient("tablespoon fresh lime juice or lemon juice", new BigDecimal(1),tableSpoonUom,guacRecipe));
-        guacRecipe.getIngredients().add(new Ingredient("serrano chiles, stems and seeds removed, minced", new BigDecimal(2),tableSpoonUom,guacRecipe));
-        guacRecipe.getIngredients().add(new Ingredient("tablespoons cilantro (leaves and tender stems), finely chopped", new BigDecimal(2),eachUom,guacRecipe));
-        guacRecipe.getIngredients().add(new Ingredient("ripe tomato, seeds and pulp removed, chopped", new BigDecimal(2),eachUom,guacRecipe));
+        guacRecipe.addIngredient(new Ingredient("ripe avocados",new BigDecimal(2),eachUom,guacRecipe));
+        guacRecipe.addIngredient(new Ingredient("teaspoon of salt, more to taste",new BigDecimal(5),teaSpoonUom,guacRecipe));
+        guacRecipe.addIngredient(new Ingredient("tablespoon fresh lime juice or lemon juice", new BigDecimal(1),tableSpoonUom,guacRecipe));
+        guacRecipe.addIngredient(new Ingredient("serrano chiles, stems and seeds removed, minced", new BigDecimal(2),tableSpoonUom,guacRecipe));
+        guacRecipe.addIngredient(new Ingredient("tablespoons cilantro (leaves and tender stems), finely chopped", new BigDecimal(2),eachUom,guacRecipe));
+        guacRecipe.addIngredient(new Ingredient("ripe tomato, seeds and pulp removed, chopped", new BigDecimal(2),eachUom,guacRecipe));
 
         guacRecipe.getCategories().add(americanCategory);
         guacRecipe.getCategories().add(mexicanCategory);
@@ -172,16 +171,14 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
         Notes tacosNotes = new Notes();
         tacosNotes.setRecipeNotes("Want a veggie version? Open a 16-ounce can of Old El Paso® refried beans, and place in a microwavable bowl. Cover and microwave on High, stirring a few times with a wooden spoon, until hot.");
 
-
-        tacosNotes.setRecipe(tacosRecipe);
         tacosRecipe.setNotes(tacosNotes);
 
-        tacosRecipe.getIngredients().add(new Ingredient("ripe avocados",new BigDecimal(2),eachUom,tacosRecipe));
-        tacosRecipe.getIngredients().add(new Ingredient("teaspoon of salt, more to taste",new BigDecimal(5),teaSpoonUom,tacosRecipe));
-        tacosRecipe.getIngredients().add(new Ingredient("tablespoon fresh lime juice or lemon juice", new BigDecimal(1),tableSpoonUom,tacosRecipe));
-        tacosRecipe.getIngredients().add(new Ingredient("serrano chiles, stems and seeds removed, minced", new BigDecimal(2),tableSpoonUom,tacosRecipe));
-        tacosRecipe.getIngredients().add(new Ingredient("tablespoons cilantro (leaves and tender stems), finely chopped", new BigDecimal(2),eachUom,tacosRecipe));
-        tacosRecipe.getIngredients().add(new Ingredient("ripe tomato, seeds and pulp removed, chopped", new BigDecimal(2),eachUom,tacosRecipe));
+        tacosRecipe.addIngredient(new Ingredient("ripe avocados",new BigDecimal(2),eachUom,tacosRecipe));
+        tacosRecipe.addIngredient(new Ingredient("teaspoon of salt, more to taste",new BigDecimal(5),teaSpoonUom,tacosRecipe));
+        tacosRecipe.addIngredient(new Ingredient("tablespoon fresh lime juice or lemon juice", new BigDecimal(1),tableSpoonUom,tacosRecipe));
+        tacosRecipe.addIngredient(new Ingredient("serrano chiles, stems and seeds removed, minced", new BigDecimal(2),tableSpoonUom,tacosRecipe));
+        tacosRecipe.addIngredient(new Ingredient("tablespoons cilantro (leaves and tender stems), finely chopped", new BigDecimal(2),eachUom,tacosRecipe));
+        tacosRecipe.addIngredient(new Ingredient("ripe tomato, seeds and pulp removed, chopped", new BigDecimal(2),eachUom,tacosRecipe));
 
         tacosRecipe.getCategories().add(americanCategory);
         tacosRecipe.getCategories().add(mexicanCategory);
