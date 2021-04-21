@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.util.Converter;
 import danu.springframework.recipeappspring.commands.IngredientCommand;
 import danu.springframework.recipeappspring.commands.UnitOfMeasureCommand;
 import danu.springframework.recipeappspring.domain.Ingredient;
+import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -16,6 +17,7 @@ public class IngredientCommandToIngredient implements Converter<IngredientComman
         this.uomConverter = uomConverter;
     }
 
+    @Nullable
     @Override
     public Ingredient convert(IngredientCommand source) {
         if (source != null){
