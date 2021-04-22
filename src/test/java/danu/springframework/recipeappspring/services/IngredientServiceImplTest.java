@@ -2,11 +2,14 @@ package danu.springframework.recipeappspring.services;
 
 import danu.springframework.recipeappspring.commands.IngredientCommand;
 import danu.springframework.recipeappspring.commands.UnitOfMeasureCommand;
+import danu.springframework.recipeappspring.converters.IngredientCommandToIngredient;
 import danu.springframework.recipeappspring.converters.IngredientToIngredientCommand;
+import danu.springframework.recipeappspring.converters.UnitOfMeasureCommandToUnitOfMeasure;
 import danu.springframework.recipeappspring.converters.UnitOfMeasureToUnitOfMeasureCommand;
 import danu.springframework.recipeappspring.domain.Ingredient;
 import danu.springframework.recipeappspring.domain.Recipe;
 import danu.springframework.recipeappspring.repositories.RecipeRepository;
+import danu.springframework.recipeappspring.repositories.UnitOfMeasureRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
@@ -21,14 +24,20 @@ import static org.mockito.Mockito.*;
 public class IngredientServiceImplTest {
 
     private final IngredientToIngredientCommand ingredientToIngredientCommand;
+    private final IngredientCommandToIngredient ingredientCommandToIngredient;
 
     @Mock
     RecipeRepository recipeRepository;
 
     IngredientService ingredientService;
 
+    @Mock
+    UnitOfMeasureRepository unitOfMeasureRepository;
+
+
     public IngredientServiceImplTest() {
         this.ingredientToIngredientCommand = new IngredientToIngredientCommand(new UnitOfMeasureToUnitOfMeasureCommand());
+        this.ingredientCommandToIngredient = new IngredientCommandToIngredient(new UnitOfMeasureCommandToUnitOfMeasure());
     }
 
     @Before
@@ -36,7 +45,7 @@ public class IngredientServiceImplTest {
 
         MockitoAnnotations.initMocks(this);
 
-        ingredientService = new IngredientServiceImpl(ingredientToIngredientCommand, recipeRepository);
+        ingredientService = new IngredientServiceImpl(ingredientToIngredientCommand, ingredientCommandToIngredient,recipeRepository,unitOfMeasureRepository);
     }
 
     @Test
