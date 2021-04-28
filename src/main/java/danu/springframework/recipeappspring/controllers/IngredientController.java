@@ -1,6 +1,8 @@
 package danu.springframework.recipeappspring.controllers;
 
 import danu.springframework.recipeappspring.commands.IngredientCommand;
+import danu.springframework.recipeappspring.commands.RecipeCommand;
+import danu.springframework.recipeappspring.commands.UnitOfMeasureCommand;
 import danu.springframework.recipeappspring.domain.Ingredient;
 import danu.springframework.recipeappspring.services.IngredientService;
 import danu.springframework.recipeappspring.services.RecipeService;
@@ -65,6 +67,24 @@ public class IngredientController {
         log.debug("saved ingredient id:" + savedCommand.getId());
 
         return "redirect:/recipe/" + savedCommand.getRecipeId() + "/ingredient/" + savedCommand.getId() + "/show";
+    }
+
+    @GetMapping
+    @RequestMapping("recipe/{recipeId}/ingredient/new")
+    public String newIngredient(@PathVariable String recipeId,Model model){
+
+        RecipeCommand recipeCommand = recipeService.findCommandById(Long.valueOf(recipeId));
+
+        IngredientCommand ingredientCommand = new IngredientCommand();
+        ingredientCommand.setRecipeId(Long.valueOf(recipeId));
+        model.addAttribute("ingredient",ingredientCommand);
+
+//        init uom
+        ingredientCommand.setUom(new UnitOfMeasureCommand());
+
+        model.addAttribute("uomList", unitOfMeasureService.listAllUoms());
+
+        return "recipe/ingredient/ingredientform";
     }
 
 }
