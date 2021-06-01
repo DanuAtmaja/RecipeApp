@@ -4,6 +4,7 @@ import danu.springframework.recipeappspring.commands.RecipeCommand;
 import danu.springframework.recipeappspring.converters.RecipeCommandToRecipe;
 import danu.springframework.recipeappspring.converters.RecipeToRecipeCommand;
 import danu.springframework.recipeappspring.domain.Recipe;
+import danu.springframework.recipeappspring.exceptions.NotFoundException;
 import danu.springframework.recipeappspring.repositories.RecipeRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -43,7 +44,7 @@ public class RecipeServiceImpl implements RecipeService{
         Optional<Recipe> recipeOptional = recipeRepository.findById(l);
 
         if (!recipeOptional.isPresent()) {
-            throw new RuntimeException("Recipe Not Found!");
+            throw new NotFoundException("Recipe Not Found. For Id Value" + l.toString());
         }
 
         return recipeOptional.get();
